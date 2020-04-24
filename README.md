@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Components Hierarchy
+![Wireframe](src/img/WireframeDiagram.png)
+
+![Components](src/img/ComponentDiagram1.png)
+![Components](src/img/ComponentDiagram2.png)
+
 ## Available Scripts
 
 In the project directory, you can run:

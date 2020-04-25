@@ -1,6 +1,6 @@
 import React from 'react';
 import NewKegForm from './NewKegForm';
-import KegThumbnailLiet from './KegThumbnailList';
+import KegThumbnailList from './KegThumbnailList';
 
 class KegControl extends React.Component {
   constructor(props) {
@@ -23,7 +23,7 @@ handleClick = () => {
       currentlyVisibleState = <NewKegForm />
       buttonText = "Return to Keg List";
     } else {
-      currentlyVisibleState = <TicketList />
+      currentlyVisibleState = <KegThumbnailList />
       buttonText = "Add Keg"; 
     }
     return (

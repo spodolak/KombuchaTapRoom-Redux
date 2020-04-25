@@ -7,8 +7,9 @@ function App(){
   return (
     <React.Fragment>
       <Header />
-      <AddKeg />
-      <KegThumbnailList />
+      {/* <AddKeg />
+      <KegThumbnailList /> */}
+      <KegControl />
     </React.Fragment>
   );
 }

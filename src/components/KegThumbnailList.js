@@ -6,6 +6,11 @@ const masterKegList = [
 		image: "image.jpg",
 		name: "Strawberry",
 		currentPints: "140 pints"
+	},
+	{
+		image: "image.jpg",
+		name: "Banana	",
+		currentPints: "140 pints"
 	}
 ]
 
@@ -13,13 +18,12 @@ const masterKegList = [
 function KegThumbnailList() {
 	return (
 		<React.Fragment>
-			<hr/>
-			{masterKegList.map((ticket, index) => 
-			<div><p>text</p>
+			{masterKegList.map((kegThumbnail, index) => 
 				<KegThumbnail 
-				image={KegThumbnail.image}
-				name={KegThumbnail.name}
-				currentPints={KegThumbnail.currentPints}/></div>
+				image={kegThumbnail.image}
+				name={kegThumbnail.name}
+				currentPints={kegThumbnail.currentPints}
+				key={index}/>
 			)}
 		</React.Fragment>
 	);

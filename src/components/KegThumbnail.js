@@ -1,7 +1,7 @@
 import React from "react";
 import KegImgButton from "./buttons/KegImageButton.js";
 import AddPintButton from "./buttons/AddPintButton.js";
-import SellPintButton from "./buttons/SellPintButton.js";
+import SellPintButton from "./buttons/SellPintButton";
 import PropTypes from "prop-types";
 
 function KegThumbnail(props) {

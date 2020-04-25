@@ -1,5 +1,4 @@
 import React from "react";
-import KegDetails from "../KegDetails.js";
 
 
 function KegImageButton() {

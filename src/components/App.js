@@ -1,15 +1,11 @@
 import React from "react";
 import Header from "./layout/Header.js";
 import KegControl from "./KegControl";
-// import AddKeg from "./buttons/AddKegButton";
-// import KegThumbnailList from "./KegThumbnailList.js";
 
 function App(){
   return (
     <React.Fragment>
       <Header />
-      {/* <AddKeg />
-      <KegThumbnailList /> */}
       <KegControl />
     </React.Fragment>
   );

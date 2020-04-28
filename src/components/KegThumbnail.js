@@ -1,26 +1,30 @@
 import React from "react";
 import KegImgButton from "./buttons/KegImageButton.js";
 import AddPintButton from "./buttons/AddPintButton.js";
-import SellPintButton from "./buttons/SellPintButton";
+import SellPintButton from "./buttons/SellPintButton.js";
 import PropTypes from "prop-types";
 
 function KegThumbnail(props) {
 	return (
 		<React.Fragment>
-			<h4>{props.image}</h4>
-			<h3>{props.name}</h3>
-			<p>{props.currentPints}</p>
-			<KegImgButton />
+      <div onClick = {() => props.whenKegClicked(props.id)}>
+			<h4>{props.name}</h4>
+			<h3>{props.brand}</h3>
+			<p>{props.price}</p>
+			<p>{props.flavor}</p>
+			{/* <KegImgButton />
 			<AddPintButton />
-			<SellPintButton />
+			<SellPintButton /> */}
+      </div>
 		</React.Fragment>
 	);
 }
 
 KegThumbnail.propTypes = {
-	image: PropTypes.string,
 	name: PropTypes.string, 
-	currentPints: PropTypes.string,
+	brand: PropTypes.string, 
+	price: PropTypes.string, 
+	flavor: PropTypes.string, 
 	KegImgButton: PropTypes.object,	
 	AddPintButton: PropTypes.object,	
 	SellPintButton: PropTypes.object	

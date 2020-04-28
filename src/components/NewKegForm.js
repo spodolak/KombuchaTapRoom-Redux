@@ -5,10 +5,7 @@ function NewKegForm(props) {
 
   function handleNewKegFormSubmission(event) {
     event.preventDefault();
-    console.log(event.target.name.value);
-    console.log(event.target.brand.value);
-    console.log(event.target.price.value);
-    console.log(event.target.flavor.value);
+    props.onNewKegCreation({name: event.target.name.value, brand: event.target.brand, price: event.target.price, flavor: event.target.flavor})
   }
 
   return(

@@ -1,7 +1,8 @@
 import React from 'react';
 import NewKegForm from './NewKegForm';
 import KegThumbnailList from './KegThumbnailList';
-import KegDetails from './KegDetails'
+import KegDetails from './KegDetails';
+import EditKegForm from './EditKegForm';
 
 class KegControl extends React.Component {
   constructor(props) {
@@ -17,15 +18,15 @@ class KegControl extends React.Component {
         },
         {
           name: "Banana",
-          brand: "Topsy Turvy",
+          brand: "Turvy Topsy",
           price: "$.99",
-          flavor: "Strawberry",
+          flavor: "Banana",
         },
         {
           name: "Kiwi",
-          brand: "Topsy Turvy",
+          brand: "Brew Blasters",
           price: "$.99",
-          flavor: "Strawberry",
+          flavor: "Kiwi",
         },
       ],
       selectedKeg: null, 
@@ -37,7 +38,8 @@ class KegControl extends React.Component {
     if (this.state.selectedTicket != null) {
       this.setState({
         formVisibleOnPage: false,
-        selectedTicket: null
+        selectedTicket: null,
+        editing: false
       });
     } else {
       this.setState(prevState => ({
@@ -67,11 +69,33 @@ class KegControl extends React.Component {
     })
   }
 
+  handleEditClick = () => {
+    console.log("handleEditClick reached!");
+    this.setState({editing: true});
+  }
+
+  handleEditingKegInList = (kegToEdit) => {
+    const editedMasterKegList = this.state.masterKegList
+      .filter(keg => keg.id !== this.state.selectedKeg.id)
+      .concat(kegToEdit);
+    this.setState({
+      masterKegList: editedMasterKegList,
+      editing: false,
+      selectedTicket: null
+    });
+  }
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
-    if (this.state.selectedKeg != null){
-      currentlyVisibleState = <KegDetails keg = {this.state.selectedKeg} onClickingDelete = {this.handleDeletingTicket} />
+    if(this.state.editing) {
+      currentlyVisibleState = <EditKegForm keg = { this.state.selectedKeg } onEditTicket = {this.handleEditingKegInList} />
+      buttonText = "Return to Ticket List";
+    } else if (this.state.selectedKeg != null){
+      currentlyVisibleState = <KegDetails 
+      keg = {this.state.selectedKeg} 
+      onClickingDelete = {this.handleDeletingTicket}
+      onClickingEdit = {this.handleEditClick} />
       buttonText="Return to Keg List";
     } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList}/>;

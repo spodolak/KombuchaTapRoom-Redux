@@ -4,11 +4,20 @@ describe('kegThumbnailListReducer', () => {
 
   let action;
   const kegData = {
-    name: "Strawberry",
-    brand: "Topsy Turvy",
-    price: "$.99",
-    flavor: "Strawberry",
-    id: 1
+    1:{
+      name: "Strawberry",
+      brand: "Topsy Turvy",
+      price: "$.99",
+      flavor: "Strawberry",
+      id: 1
+    },
+    2:{
+      name: "Banana",
+      brand: "Turvy Topsy",
+      price: "$1.59",
+      flavor: "Banana",
+      id: 1
+    }
   }
 
   test('Should return default state if there is no action type passed into the reducer', () => {
@@ -33,6 +42,22 @@ describe('kegThumbnailListReducer', () => {
         price: price,
         flavor: flavor,
         id: id
+      }
+    });
+  });
+
+  test('Should successfully delete a keg', () => {
+    action = {
+      type: 'DELETE_KEG',
+      id: 1
+    };
+    expect(kegThumbnailListReducer(currentState, action)).toEqual({
+      2:{
+        name: "Banana",
+        brand: "Turvy Topsy",
+        price: "$1.59",
+        flavor: "Banana",
+        id: 1
       }
     });
   });

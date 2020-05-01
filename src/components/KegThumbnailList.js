@@ -1,5 +1,5 @@
 import React from "react";
-import KegThumbnail from "./KegThumbnail.js";
+import KegThumbnail from "./KegThumbnail";
 import PropTypes from "prop-types";
 
 function KegThumbnailList(props) {

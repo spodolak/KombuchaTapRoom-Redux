@@ -3,20 +3,20 @@ import kegThumbnailListReducer from '../../reducers/keg-thumbnail-list-reducer';
 describe('kegThumbnailListReducer', () => {
 
   let action;
-  const kegData = {
-    1:{
+  const currentState = {
+    [1]:{
       name: "Strawberry",
       brand: "Topsy Turvy",
       price: "$.99",
       flavor: "Strawberry",
       id: 1
     },
-    2:{
+    [2]:{
       name: "Banana",
       brand: "Turvy Topsy",
       price: "$1.59",
       flavor: "Banana",
-      id: 1
+      id: 2
     }
   }
 
@@ -25,7 +25,7 @@ describe('kegThumbnailListReducer', () => {
   });
 
   test('Should successfully add new keg to masterKegList', () => {
-    const { name, brand, price, flavor, id } = kegData;
+    const { name, brand, price, flavor, id } = currentState;
     action = {
       type: 'ADD_KEG',
       name: name,
@@ -57,7 +57,7 @@ describe('kegThumbnailListReducer', () => {
         brand: "Turvy Topsy",
         price: "$1.59",
         flavor: "Banana",
-        id: 1
+        id: 2
       }
     });
   });

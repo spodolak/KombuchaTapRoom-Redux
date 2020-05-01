@@ -5,21 +5,21 @@ import PropTypes from "prop-types";
 function KegThumbnailList(props) {
 	return (
 		<React.Fragment>
-			{props.kegList.map((keg) => 
-        <KegThumbnail 
+			{Object.values(props.KegThumbnailList).map((keg) => {
+        return <KegThumbnail 
         whenKegClicked = { props.onKegSelection }
 				name={keg.name}
 				brand={keg.brand}
 				price={keg.price}
 				flavor={keg.flavor}
 				key={keg.id}/>
-			)}
+      })}
 		</React.Fragment>
 	);
 }
 
 KegThumbnailList.propTypes = {
-  kegList: PropTypes.array,
+  kegList: PropTypes.object,
   onKegSelection: PropTypes.func
 };
 

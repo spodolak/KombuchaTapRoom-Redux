@@ -3,32 +3,13 @@ import NewKegForm from './NewKegForm';
 import KegThumbnailList from './KegThumbnailList';
 import KegDetails from './KegDetails';
 import EditKegForm from './EditKegForm';
+import { connect } from 'react-redux';
 
 class KegControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      masterKegList: [
-        {
-          name: "Strawberry",
-          brand: "Topsy Turvy",
-          price: "$.99",
-          flavor: "Strawberry",
-        },
-        {
-          name: "Banana",
-          brand: "Turvy Topsy",
-          price: "$.99",
-          flavor: "Banana",
-        },
-        {
-          name: "Kiwi",
-          brand: "Brew Blasters",
-          price: "$.99",
-          flavor: "Kiwi",
-        },
-      ],
       selectedKeg: null, 
       editing: false
     };
@@ -54,17 +35,30 @@ class KegControl extends React.Component {
   }
 
   handleAddingNewKegToList = (newKeg) => {
-    const newMasterKegList = this.state.masterKegList.concat(newKeg);
+    const { dispatch } = this.props;
+    const { name, brand, price, flavor, id } = newKeg;
+    const action = {
+      type: 'ADD_KEG',
+      name: name,
+      brand: brand,
+      price: price,
+      flavor: flavor,
+      id: id
+    }
+    dispatch(action);
     this.setState({
-      masterKegList: newMasterKegList,
       formVisibleOnPage: false
     });
   }
 
   handleDeletingKeg = (id) => {
-    const newMasterKegList = this.state.masterKegList.filter(keg => keg.id !== id);
+    const { dispatch } = this.props;
+    const action = {
+      type: 'DELETE_KEG',
+      id: id
+    }
+    dispatch(action);
     this.setState({
-      masterKegList: newMasterKegList,
       selectedKeg: null
     })
   }
@@ -111,5 +105,7 @@ class KegControl extends React.Component {
     );
   }
 }
+
+KegControl = connect()(KegControl);
 
 export default KegControl;

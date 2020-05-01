@@ -2,20 +2,6 @@ import React from "react";
 import KegThumbnail from "./KegThumbnail.js";
 import PropTypes from "prop-types";
 
-const masterKegList = [
-	{
-		image: "image.jpg",
-		name: "Strawberry",
-		currentPints: "140 pints"
-	},
-	{
-		image: "image.jpg",
-		name: "Banana	",
-		currentPints: "140 pints"
-	}
-]
-
-
 function KegThumbnailList(props) {
 	return (
 		<React.Fragment>
@@ -34,7 +20,7 @@ function KegThumbnailList(props) {
 
 KegThumbnailList.propTypes = {
   kegList: PropTypes.array,
-  onTicketSelection: PropTypes.func
+  onKegSelection: PropTypes.func
 };
 
 

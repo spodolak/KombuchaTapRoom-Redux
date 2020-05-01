@@ -52,7 +52,7 @@ describe('kegThumbnailListReducer', () => {
       id: 1
     };
     expect(kegThumbnailListReducer(currentState, action)).toEqual({
-      2:{
+      [2]:{
         name: "Banana",
         brand: "Turvy Topsy",
         price: "$1.59",
